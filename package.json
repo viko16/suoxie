@@ -1,0 +1,24 @@
+{
+  "name": "suoxie",
+  "version": "0.0.0",
+  "description": "Query abbreviation in your command line.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "translate",
+    "abbreviations",
+    "term"
+  ],
+  "author": "viko16 <16viko@gmail.com>",
+  "engines": {
+    "node": ">=4"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^3.6.1",
+    "eslint-config-standard": "^6.1.0",
+    "eslint-plugin-promise": "^2.0.1",
+    "eslint-plugin-standard": "^2.0.1"
+  }
+}

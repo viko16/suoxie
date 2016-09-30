@@ -1,0 +1,10 @@
+{
+  "extends": "standard",
+  "installedESLint": true,
+  "plugins": [
+    "standard"
+  ],
+  "env": {
+    "node": true
+  }
+}
