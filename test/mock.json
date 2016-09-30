@@ -1,0 +1,106 @@
+{
+  "results": {
+    "result": [
+      {
+        "id": "1515601",
+        "term": "ABBREVIAT",
+        "definition": "Abbreviation",
+        "category": "UNFILED",
+        "categoryname": "Unclassified",
+        "parentcategory": "MISCELLANEOUS",
+        "parentcategoryname": "Miscellaneous",
+        "score": "2.00"
+      },
+      {
+        "id": "1425780",
+        "term": "ABBRV",
+        "definition": "Abbreviation",
+        "category": "MISCELLANEOUS",
+        "categoryname": "Miscellaneous",
+        "parentcategory": {},
+        "parentcategoryname": {},
+        "score": "5.00"
+      },
+      {
+        "id": "502136",
+        "term": "ABBR",
+        "definition": "Abbreviation",
+        "category": "MISCELLANEOUS",
+        "categoryname": "Miscellaneous",
+        "parentcategory": {},
+        "parentcategoryname": {},
+        "score": "2.67"
+      },
+      {
+        "id": "1460628",
+        "term": "ABBREVI",
+        "definition": "Abbreviation",
+        "category": "UNFILED",
+        "categoryname": "Unclassified",
+        "parentcategory": "MISCELLANEOUS",
+        "parentcategoryname": "Miscellaneous",
+        "score": "2.00"
+      },
+      {
+        "id": "1395398",
+        "term": "ABBR",
+        "definition": "Abbreviation",
+        "category": "LIBRARIES",
+        "categoryname": "Libraries",
+        "parentcategory": "SCIENCE",
+        "parentcategoryname": "Academic & Science",
+        "score": "3.00"
+      },
+      {
+        "id": "1478605",
+        "term": "ABBRE",
+        "definition": "Abbreviation",
+        "category": "UNFILED",
+        "categoryname": "Unclassified",
+        "parentcategory": "MISCELLANEOUS",
+        "parentcategoryname": "Miscellaneous",
+        "score": "1.00"
+      },
+      {
+        "id": "1419747",
+        "term": "ABBREV",
+        "definition": "Abbreviation",
+        "category": "LIBRARIES",
+        "categoryname": "Libraries",
+        "parentcategory": "SCIENCE",
+        "parentcategoryname": "Academic & Science",
+        "score": "4.00"
+      },
+      {
+        "id": "1432554",
+        "term": "ABRV",
+        "definition": "Abbreviation",
+        "category": "MISCELLANEOUS",
+        "categoryname": "Miscellaneous",
+        "parentcategory": {},
+        "parentcategoryname": {},
+        "score": "4.33"
+      },
+      {
+        "id": "1542135",
+        "term": "ABBREVIATI",
+        "definition": "Abbreviation",
+        "category": "UNFILED",
+        "categoryname": "Unclassified",
+        "parentcategory": "MISCELLANEOUS",
+        "parentcategoryname": "Miscellaneous",
+        "score": "1.00"
+      },
+      {
+        "id": "1747961",
+        "term": "PASS",
+        "definition": "Abbreviation",
+        "category": "ASIAN",
+        "categoryname": "Asian",
+        "parentcategory": "INTERNATIONAL",
+        "parentcategoryname": "International",
+        "score": "0.00"
+      }
+    ]
+  }
+}
