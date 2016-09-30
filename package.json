@@ -4,7 +4,8 @@
   "description": "Query abbreviation in your command line.",
   "main": "lib/index.js",
   "bin": {
-    "sx": "cli.js"
+    "sx": "cli.js",
+    "suoxie": "cli.js"
   },
   "files": [
     "cli.js",
@@ -22,6 +23,9 @@
   "engines": {
     "node": ">=4"
   },
+  "homepage": "https://github.com/viko16/suoxie",
+  "repository": "viko16/suoxie",
+  "bugs": "https://github.com/viko16/suoxie/issues",
   "license": "MIT",
   "dependencies": {
     "chalk": "^1.1.3",
