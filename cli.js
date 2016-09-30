@@ -30,7 +30,7 @@ if (!word) cli.showHelp()
 
 main(word)
   .then(rst => {
-    if (!rst && rst.results && rst.results.result) {
+    if (rst && rst.results && rst.results.result) {
       print(rst.results.result)
     } else {
       console.log('We couldn\'t find any results for your search.')
