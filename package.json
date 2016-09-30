@@ -2,6 +2,14 @@
   "name": "suoxie",
   "version": "0.0.0",
   "description": "Query abbreviation in your command line.",
+  "main": "lib/index.js",
+  "bin": {
+    "sx": "cli.js"
+  },
+  "files": [
+    "cli.js",
+    "lib"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +23,13 @@
     "node": ">=4"
   },
   "license": "MIT",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "meow": "^3.7.0",
+    "node-fetch": "^1.6.3",
+    "update-notifier": "^1.0.2",
+    "xml2json": "^0.10.0"
+  },
   "devDependencies": {
     "eslint": "^3.6.1",
     "eslint-config-standard": "^6.1.0",
