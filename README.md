@@ -21,7 +21,7 @@ $ sx --help
 
 ```javascript
 const suoxie = require('suoxie')
-console.log(suoxie(word)) // output "JSON-friendly" string
+suoxie(word).then(console.log) // return Promise
 ```
 
 ## Thanks
