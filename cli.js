@@ -4,6 +4,7 @@
 const meow = require('meow')
 const updateNotifier = require('update-notifier')
 const chalk = require('chalk')
+const ora = require('ora')
 
 const pkg = require('./package.json')
 const main = require('./lib')
@@ -28,8 +29,11 @@ const cli = meow(`
 const word = cli.input.join(' ')
 if (!word) cli.showHelp()
 
+const spinner = ora('Loading...').start()
+
 main(word)
   .then(rst => {
+    spinner.stop()
     if (rst && rst.results && rst.results.result) {
       print(rst.results.result)
     } else {
@@ -38,7 +42,8 @@ main(word)
     }
   })
   .catch(e => {
-    process.env.NODE_ENV === 'production'
+    spinner.stop()
+    process.env.NODE_ENV !== 'development'
       ? console.log('Ah, it seems to be something wrong.')
       : console.error(e.stack)
   })
