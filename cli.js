@@ -17,7 +17,7 @@ const cli = meow(`
     sx <words>
 
   Options:
-    -v, --version   Output version number
+    -v, --version   Output version number (v${pkg.version} now)
     -h, --help      Output usage information
 `, {
   alias: {
