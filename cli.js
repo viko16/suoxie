@@ -37,13 +37,13 @@ main(word)
     if (rst && rst.results && rst.results.result) {
       print(rst.results.result)
     } else {
-      console.log('We couldn\'t find any results for your search.')
+      console.log(chalk.red('We couldn\'t find any results for your search.'))
       console.log('Or you can search it online: ' + chalk.gray.underline(`http://www.abbreviations.com/abbreviation/${encodeURIComponent(word)}`))
     }
   })
   .catch(e => {
     spinner.stop()
     process.env.NODE_ENV !== 'development'
-      ? console.log('Ah, it seems to be something wrong.')
+      ? console.log(chalk.red('Ah, it seems to be something wrong.'))
       : console.error(e.stack)
   })
