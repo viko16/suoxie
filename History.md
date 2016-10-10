@@ -1,4 +1,11 @@
 
+v0.3.0 / 2016-10-10
+==================
+
+  * feat: improve cli output
+  * docs: update readme
+  * feat: show version in help message
+
 v0.2.0 / 2016-10-02
 ===================
 
