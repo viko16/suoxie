@@ -3,6 +3,7 @@
 import test from 'ava'
 import suoxie from '../lib'
 import print from '../lib/print'
+import { result as mockData } from './mock.json'
 
 test('single result', function * (t) {
   const rst = yield suoxie('internationalization')
@@ -31,5 +32,6 @@ test('multi result', function * (t) {
 })
 
 test('print', t => {
-  t.notThrows(print)
+  t.notThrows(_ => print())
+  t.notThrows(_ => print(mockData))
 })
