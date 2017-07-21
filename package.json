@@ -12,7 +12,7 @@
     "lib"
   ],
   "scripts": {
-    "test": "eslint . && ava"
+    "test": "standard . && ava"
   },
   "keywords": [
     "translate",
@@ -28,18 +28,15 @@
   "bugs": "https://github.com/viko16/suoxie/issues",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^1.1.3",
+    "chalk": "^2.0.0",
     "meow": "^3.7.0",
     "node-fetch": "^1.6.3",
-    "ora": "^0.3.0",
-    "update-notifier": "^1.0.2",
-    "xml2json": "^0.10.0"
+    "ora": "^1.3.0",
+    "update-notifier": "^2.2.0",
+    "xml2json": "^0.11.0"
   },
   "devDependencies": {
-    "ava": "^0.16.0",
-    "eslint": "^3.8.1",
-    "eslint-config-standard": "^6.2.0",
-    "eslint-plugin-promise": "^3.3.0",
-    "eslint-plugin-standard": "^2.0.0"
+    "ava": "^0.21.0",
+    "standard": "^10.0.2"
   }
 }
