@@ -6,8 +6,8 @@ import api from '../lib/api'
 import print from '../lib/print'
 import { result as mockJson } from './mock.json'
 
-test('single result', function * (t) {
-  const rst = yield suoxie('internationalization')
+test('single result', async t => {
+  const rst = await suoxie('big')
 
   // should got an object result
   t.truthy(rst)
@@ -16,11 +16,11 @@ test('single result', function * (t) {
   t.is(typeof rst.results.result, 'object')
 
   // should got correct result
-  t.is(rst.results.result.term, 'I18N')
+  t.is(rst.results.result.term, 'B')
 })
 
-test('multi result', function * (t) {
-  const rst = yield suoxie('repository')
+test('multi result', async t => {
+  const rst = await suoxie('repository')
 
   // should got an object result
   t.truthy(rst)
@@ -33,12 +33,15 @@ test('multi result', function * (t) {
   t.is(rst.results.result[0].term, 'REPOS')
 })
 
-test('api', function * (t) {
-  const rst = yield api.fetchTerm('application')
+test('api', async t => {
+  const rst = await api.fetchTerm('application')
 
   // should return reject with an error
-  t.throws(api.fetchTerm(), 'word must not be empty')
-  t.throws(api.fetchTerm(''), 'word must not be empty')
+  const expected = 'word must not be empty'
+  const err1 = await t.throws(api.fetchTerm())
+  const err2 = await t.throws(api.fetchTerm(''))
+  t.is(err1.message, expected)
+  t.is(err2.message, expected)
 
   // pure result from api request should be xml
   t.true(rst.startsWith('<?xml'.toLowerCase()))

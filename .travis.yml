@@ -2,9 +2,6 @@ sudo: false
 
 language: node_js
 
-env:
-  - CXX="g++-4.8"
-
 node_js:
   - 4
   - 5
@@ -14,11 +11,3 @@ node_js:
 cache:
   directories:
   - node_modules
-
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - g++-4.8
-    - gcc-4.8
