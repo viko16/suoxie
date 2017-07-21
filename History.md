@@ -1,4 +1,13 @@
 
+v0.5.0 / 2017-07-22
+===================
+
+  * test: update tests
+  * deps: bump deps
+  * refactor: using built-in function instead of mine
+  * test: improve test
+  * docs: update changelog
+
 v0.4.0 / 2016-11-14
 ===================
 
