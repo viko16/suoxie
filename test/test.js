@@ -43,7 +43,7 @@ test('multi result', async () => {
     assert.equal(typeof rst, 'object');
 
     // should got array
-    assert.equal(Object.prototype.toString.call(rst.results.result), '[object Array]');
+    assert.equal(Array.isArray(rst.results.result), true);
 
     // should got correct result
     assert.equal(rst.results.result[0].term, 'REPOS');
