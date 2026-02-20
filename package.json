@@ -36,6 +36,6 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.3",
-    "@viko16/biome-config": "^1.0.0"
+    "@viko16/biome-config": "^1.0.1"
   }
 }

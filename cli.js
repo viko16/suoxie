@@ -44,10 +44,14 @@ if (values.version) {
   process.exit(0);
 }
 
-if (values.help) showHelp(0);
+if (values.help) {
+  showHelp(0);
+}
 
 const word = positionals.join(' ');
-if (!word) showHelp(2);
+if (!word) {
+  showHelp(2);
+}
 
 const spinner = ora('Loading...').start();
 
