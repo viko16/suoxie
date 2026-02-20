@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-const { parseArgs } = require('node:util');
-const chalk = require('chalk');
+const { parseArgs, styleText } = require('node:util');
 const ora = require('ora');
 
 const pkg = require('./package.json');
@@ -61,9 +60,10 @@ main(word)
     if (rst?.results?.result) {
       print(rst.results.result);
     } else {
-      console.log(chalk.red("We couldn't find any results for your search."));
+      console.log(styleText('red', "We couldn't find any results for your search."));
       console.log(
-        `Or you can search it online: ${chalk.gray.underline(
+        `Or you can search it online: ${styleText(
+          ['gray', 'underline'],
           `http://www.abbreviations.com/abbreviation/${encodeURIComponent(word)}`,
         )}`,
       );
@@ -72,6 +72,6 @@ main(word)
   .catch((e) => {
     spinner.stop();
     process.env.NODE_ENV !== 'development'
-      ? console.log(chalk.red('Ah, it seems to be something wrong.'))
+      ? console.log(styleText('red', 'Ah, it seems to be something wrong.'))
       : console.error(e.stack);
   });

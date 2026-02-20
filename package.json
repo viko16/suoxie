@@ -23,14 +23,13 @@
   ],
   "author": "viko16 <16viko@gmail.com>",
   "engines": {
-    "node": ">=20"
+    "node": ">=20.12.0"
   },
   "homepage": "https://github.com/viko16/suoxie",
   "repository": "viko16/suoxie",
   "bugs": "https://github.com/viko16/suoxie/issues",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^4.1.2",
     "fast-xml-parser": "^5.3.7",
     "ora": "^5.4.1"
   },
