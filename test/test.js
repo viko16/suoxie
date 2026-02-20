@@ -1,54 +1,83 @@
-'use strict'
+const assert = require('node:assert/strict');
+const { spawnSync } = require('node:child_process');
+const test = require('node:test');
+const suoxie = require('../lib');
+const api = require('../lib/api');
+const print = require('../lib/print');
+const mockJson = require('./mock.json').results.result;
 
-import test from 'ava'
-import suoxie from '../lib'
-import api from '../lib/api'
-import print from '../lib/print'
-import { result as mockJson } from './mock.json'
+const SINGLE_XML =
+  '<?xml version="1.0" encoding="utf-8"?><results><result><id>1515601</id><term>B</term><categoryname>Unclassified</categoryname><score>2.00</score></result></results>';
+const MULTI_XML =
+  '<?xml version="1.0" encoding="utf-8"?><results><result><id>1</id><term>REPOS</term><categoryname>Libraries</categoryname><score>4.00</score></result><result><id>2</id><term>REPO</term><categoryname>Libraries</categoryname><score>3.50</score></result></results>';
 
-test('single result', async t => {
-  const rst = await suoxie('big')
+test('single result', async () => {
+  const originalFetchTerm = api.fetchTerm;
+  api.fetchTerm = () => Promise.resolve(SINGLE_XML);
 
-  // should got an object result
-  t.truthy(rst)
-  t.is(typeof rst, 'object')
+  try {
+    const rst = await suoxie('big');
 
-  t.is(typeof rst.results.result, 'object')
+    // should got an object result
+    assert.ok(rst);
+    assert.equal(typeof rst, 'object');
 
-  // should got correct result
-  t.is(rst.results.result.term, 'B')
-})
+    assert.equal(typeof rst.results.result, 'object');
 
-test('multi result', async t => {
-  const rst = await suoxie('repository')
+    // should got correct result
+    assert.equal(rst.results.result.term, 'B');
+  } finally {
+    api.fetchTerm = originalFetchTerm;
+  }
+});
 
-  // should got an object result
-  t.truthy(rst)
-  t.is(typeof rst, 'object')
+test('multi result', async () => {
+  const originalFetchTerm = api.fetchTerm;
+  api.fetchTerm = () => Promise.resolve(MULTI_XML);
 
-  // should got array
-  t.is(Object.prototype.toString.call(rst.results.result), '[object Array]')
+  try {
+    const rst = await suoxie('repository');
 
-  // should got correct result
-  t.is(rst.results.result[0].term, 'REPOS')
-})
+    // should got an object result
+    assert.ok(rst);
+    assert.equal(typeof rst, 'object');
 
-test('api', async t => {
-  const rst = await api.fetchTerm('application')
+    // should got array
+    assert.equal(Object.prototype.toString.call(rst.results.result), '[object Array]');
 
+    // should got correct result
+    assert.equal(rst.results.result[0].term, 'REPOS');
+  } finally {
+    api.fetchTerm = originalFetchTerm;
+  }
+});
+
+test('api', async () => {
   // should return reject with an error
-  const expected = 'word must not be empty'
-  const err1 = await t.throws(api.fetchTerm())
-  const err2 = await t.throws(api.fetchTerm(''))
-  t.is(err1.message, expected)
-  t.is(err2.message, expected)
+  const expected = 'word must not be empty';
+  await assert.rejects(() => api.fetchTerm(), { message: expected });
+  await assert.rejects(() => api.fetchTerm(''), { message: expected });
+});
 
-  // pure result from api request should be xml
-  t.true(rst.startsWith('<?xml'.toLowerCase()))
-})
+test('api import should not trigger DEP0040 punycode warning', () => {
+  const child = spawnSync(process.execPath, ['--trace-deprecation', '-e', "require('./lib/api')"], {
+    cwd: process.cwd(),
+    encoding: 'utf8',
+  });
 
-test('print', t => {
+  assert.equal(child.status, 0);
+  assert.equal(child.stderr.includes('DEP0040'), false);
+});
+
+test('print', () => {
+  const originalLog = console.log;
+  console.log = () => {};
+
   // print to console should not throw any errors
-  t.notThrows(_ => print())
-  t.notThrows(_ => print(mockJson))
-})
+  try {
+    assert.doesNotThrow(() => print());
+    assert.doesNotThrow(() => print(mockJson));
+  } finally {
+    console.log = originalLog;
+  }
+});

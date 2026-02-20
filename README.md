@@ -3,7 +3,7 @@
 [![Build Status](https://img.shields.io/travis/viko16/suoxie.svg?style=flat)](https://travis-ci.org/viko16/suoxie)
 [![NPM version](https://img.shields.io/npm/v/suoxie.svg?style=flat)](https://npmjs.org/package/suoxie)
 [![Node version](https://img.shields.io/node/v/suoxie.svg?style=flat)](https://github.com/viko16/suoxie)
-[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
+[![Lint](https://img.shields.io/badge/lint-biome-60a5fa.svg?style=flat)](https://biomejs.dev/)
 
 🔍 Query abbreviations in your command line. 🔍 在命令行查缩写。🔍
 

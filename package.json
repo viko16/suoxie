@@ -12,7 +12,9 @@
     "lib"
   ],
   "scripts": {
-    "test": "standard . && ava"
+    "lint": "biome check .",
+    "test:unit": "node --test --test-concurrency=1",
+    "test": "npm run lint && npm run test:unit"
   },
   "keywords": [
     "translate",
@@ -21,22 +23,19 @@
   ],
   "author": "viko16 <16viko@gmail.com>",
   "engines": {
-    "node": ">=4"
+    "node": ">=20"
   },
   "homepage": "https://github.com/viko16/suoxie",
   "repository": "viko16/suoxie",
   "bugs": "https://github.com/viko16/suoxie/issues",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^2.0.0",
-    "fast-xml-parser": "^5.3.6",
-    "meow": "^3.7.0",
-    "node-fetch": "^2.6.1",
-    "ora": "^1.3.0",
-    "update-notifier": "^2.2.0"
+    "chalk": "^4.1.2",
+    "fast-xml-parser": "^5.3.7",
+    "ora": "^5.4.1"
   },
   "devDependencies": {
-    "ava": "^0.21.0",
-    "standard": "^10.0.2"
+    "@biomejs/biome": "^2.4.3",
+    "@viko16/biome-config": "^1.0.0"
   }
 }
