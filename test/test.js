@@ -6,14 +6,34 @@ const api = require('../lib/api');
 const print = require('../lib/print');
 const mockJson = require('./mock.json').results.result;
 
-const SINGLE_XML =
-  '<?xml version="1.0" encoding="utf-8"?><results><result><id>1515601</id><term>B</term><categoryname>Unclassified</categoryname><score>2.00</score></result></results>';
-const MULTI_XML =
-  '<?xml version="1.0" encoding="utf-8"?><results><result><id>1</id><term>REPOS</term><categoryname>Libraries</categoryname><score>4.00</score></result><result><id>2</id><term>REPO</term><categoryname>Libraries</categoryname><score>3.50</score></result></results>';
+const SINGLE_RESULT_JSON = {
+  result: {
+    id: '1515601',
+    term: 'B',
+    categoryname: 'Unclassified',
+    score: '2.00',
+  },
+};
+const MULTI_RESULT_JSON = {
+  result: [
+    {
+      id: '1',
+      term: 'REPOS',
+      categoryname: 'Libraries',
+      score: '4.00',
+    },
+    {
+      id: '2',
+      term: 'REPO',
+      categoryname: 'Libraries',
+      score: '3.50',
+    },
+  ],
+};
 
 test('single result', async () => {
   const originalFetchTerm = api.fetchTerm;
-  api.fetchTerm = () => Promise.resolve(SINGLE_XML);
+  api.fetchTerm = () => Promise.resolve(SINGLE_RESULT_JSON);
 
   try {
     const rst = await suoxie('big');
@@ -33,7 +53,7 @@ test('single result', async () => {
 
 test('multi result', async () => {
   const originalFetchTerm = api.fetchTerm;
-  api.fetchTerm = () => Promise.resolve(MULTI_XML);
+  api.fetchTerm = () => Promise.resolve(MULTI_RESULT_JSON);
 
   try {
     const rst = await suoxie('repository');

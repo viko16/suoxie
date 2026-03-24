@@ -30,7 +30,6 @@
   "bugs": "https://github.com/viko16/suoxie/issues",
   "license": "MIT",
   "dependencies": {
-    "fast-xml-parser": "^5.3.7",
     "ora": "^5.4.1"
   },
   "devDependencies": {

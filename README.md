@@ -32,7 +32,7 @@ suoxie(word).then(console.log) // return Promise
 ```
 
 ## Thanks
-- All data is fetched from [Abbreviations.com](http://www.abbreviations.com/) API.
+- All data is fetched from [Abbreviations.com](https://www.abbreviations.com/) API.
 - Inspired by [egoist/liyu](https://github.com/egoist/liyu).
 
 ## License
