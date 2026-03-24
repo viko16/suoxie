@@ -64,7 +64,7 @@ main(word)
       console.log(
         `Or you can search it online: ${styleText(
           ['gray', 'underline'],
-          `http://www.abbreviations.com/abbreviation/${encodeURIComponent(word)}`,
+          `https://www.abbreviations.com/abbreviation/${encodeURIComponent(word)}`,
         )}`,
       );
     }
